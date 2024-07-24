@@ -1,5 +1,4 @@
 import {createEvent, createStore} from "effector";
-import {getRandomSystems} from "./mock.ts";
 
 
 export interface Planet {
@@ -28,7 +27,7 @@ export interface System{
     planets: Planet[]
 }
 
-export const $systems = createStore<System[]>(getRandomSystems())
+export const $systems = createStore<System[]>([])
 
-export const nextState = createEvent()
+export const setState = createEvent<System[]>()
 

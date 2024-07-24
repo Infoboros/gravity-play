@@ -1,20 +1,9 @@
-import {$systems, nextState} from './index.ts'
+import {$systems, setState} from './index.ts'
 import {System} from "./index";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const handleNextState = (prevState: System[], _: void) => prevState
-    .map(
-        ({planets, ...system}) => ({
-            planets: planets.map(
-                ({t, ...planet}) => ({
-                    t: t + 0.01,
-                    ...planet
-                })
-            ),
-            ...system
-        })
-    )
+const handleSetState = (_: System[], newState: System[]) => newState
 
 
 $systems
-    .on(nextState, handleNextState)
+    .on(setState, handleSetState)
